@@ -8,7 +8,7 @@
 Запустите ваш мини апп
 
 ```sh
- yarn start
+ pnpm start
 ```
 
 Перейдите на [devportal](https://dev.vk.com/ru) или в [управление](https://vk.com/apps?act=manage) и создайте новый мини апп.  
@@ -21,8 +21,8 @@
 Для того чтобы поделиться приложением запущенным на localhost со своими друзьями, вы можете скачать утилиту vk-tunnel и запустить уже подготовленный скрипт из package.json
 
 ```sh
-yarn global add @vkontakte/vk-tunnel
-yarn run tunnel
+pnpm global add @vkontakte/vk-tunnel
+pnpm run tunnel
 ```
 
 После чего вы получите ссылку, по которой ваше приложение будет доступно с любого устройства, подробнее про vk-tunnel можно прочитать [тут](https://dev.vk.com/ru/libraries/tunnel).
@@ -30,7 +30,7 @@ yarn run tunnel
 Для того чтобы захостить ваше приложение на сервера ВКонтакте нужно зайти в vk-hosting-config.json и указать id вашего приложения. Далее можно запустить уже подготовленный скрипт:
 
 ```sh
-yarn run deploy
+pnpm run deploy
 ```
 
 После чего, вы получите бессрочную ссылку на ваш мини апп.
