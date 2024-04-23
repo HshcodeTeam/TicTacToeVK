@@ -23,6 +23,15 @@ interface GameProps {
 	setPartyCount?: Dispatch<SetStateAction<number>>;
 }
 
+interface WebSocketMessage {
+	type: "start_game" | "update_board" | "game_end";
+	players?: string[];
+	board?: ("X" | "O" | null)[][]; // Замените на вашу структуру данных доски
+	currentPlayer?: string;
+	winner?: "draw" | string;
+}
+
+
 async function fetchUserNameById(userId: number): Promise<string> {
 	return bridge.send('VKWebAppGetUserInfo', {user_id: userId}).then((data) => {
 		if (data.first_name) {
