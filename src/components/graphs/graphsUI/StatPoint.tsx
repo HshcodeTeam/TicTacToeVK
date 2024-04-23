@@ -4,34 +4,22 @@ import {FC} from "react";
 interface StatProps {
     text?: string;
     colour?: string;
-    selected?: boolean;
-    onClick?: () => void;
 }
 
 const StyledStatPoint = styled.div`
-  width: 54%;
-  max-width: 303px;
+  width: 74%;
   height: 24%;
+  background-color: coral;
   display: flex;
   justify-content: start;
   align-self: center;
-
-  @media (max-width: 482px) {
-    width: 65%;
-  }
-  
-  @media (max-width: 414px) {
-    width: 80%;
-  }
 `;
 
-const StyledPoint = styled.div<StatProps>`
+const StyledPoint = styled.div`
   align-self: center;
-  width: 42px;
-  height: 42px;
+  width: 52px;
+  height: 52px;
   border-radius: 100%;
-  background-color: ${({ selected, colour }) => selected ? `#${colour}` : 'transparent'};
-  border: 10px solid ${({ colour }) => `#${colour}`};  // Граница всегда отображает цвет
 `;
 
 const StyledText = styled.p`
@@ -44,10 +32,10 @@ const StyledText = styled.p`
   margin: 0;
 `;
 
-const StatPoint: FC<StatProps> = ({ text, colour, selected, onClick }) => {
+const StatPoint: FC<StatProps> = ( { text, colour } ) => {
     return (
-        <StyledStatPoint onClick={onClick} style={{ cursor: 'pointer' }}>
-            <StyledPoint colour={colour} selected={selected} />
+        <StyledStatPoint>
+            <StyledPoint style={{backgroundColor: `#${colour}`}}/>
             <StyledText>{text}</StyledText>
         </StyledStatPoint>
     );

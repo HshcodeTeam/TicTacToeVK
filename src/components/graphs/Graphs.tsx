@@ -11,9 +11,7 @@ export const Graphs: FC<GrapshProps> = ({ size, progress, strokeWidth }) => {
     const [offset, setOffset] = useState(0);
 
 
-    const circleRef1 = useRef<SVGCircleElement>(null);
-    const circleRef2 = useRef<SVGCircleElement>(null);
-    const circleRef3 = useRef<SVGCircleElement>(null);
+    const circleRef = useRef<SVGCircleElement>(null);
 
     const effectiveSize = size ?? "100";
     const effectiveStrokeWidth = strokeWidth ?? 1;
@@ -33,16 +31,12 @@ export const Graphs: FC<GrapshProps> = ({ size, progress, strokeWidth }) => {
         const progressOffset = ((100 - effectiveProgress) / 100) * circumference;
         setOffset(progressOffset);
 
-        if (circleRef1.current) {
-            circleRef1.current.style.transition = "stroke-dashoffset 850ms ease-in-out";
-        }
-        if (circleRef2.current) {
-            circleRef2.current.style.transition = "stroke-dashoffset 850ms ease-in-out";
-        }
-        if (circleRef3.current) {
-            circleRef3.current.style.transition = "stroke-dashoffset 850ms ease-in-out";
+        if (circleRef.current) {
+            circleRef.current.style.transition = "stroke-dashoffset 850ms ease-in-out";
         }
     }, [effectiveProgress, circumference]);
+
+
 
     return (
         <div style={{ padding: "3%" }}>
@@ -62,16 +56,17 @@ export const Graphs: FC<GrapshProps> = ({ size, progress, strokeWidth }) => {
                 </text>
                 <circle
                     className="circular-bg"
-                    stroke="none"
+                    stroke="#fff"
                     fill="none"
                     cx={center}
                     cy={center}
                     r={radius}
                     strokeWidth={effectiveStrokeWidth}
                 ></circle>
+
                 <circle
                     className="circle"
-                    ref={circleRef3}
+                    ref={circleRef}
                     stroke="#FB9CFF"
                     fill="none"
                     cx={center}
@@ -84,7 +79,7 @@ export const Graphs: FC<GrapshProps> = ({ size, progress, strokeWidth }) => {
                 ></circle>
                 <circle
                     className="circle"
-                    ref={circleRef2}
+                    ref={circleRef}
                     stroke="#9244CE"
                     fill="none"
                     cx={center}
@@ -97,7 +92,7 @@ export const Graphs: FC<GrapshProps> = ({ size, progress, strokeWidth }) => {
                 ></circle>
                 <circle
                     className="circle"
-                    ref={circleRef1}
+                    ref={circleRef}
                     stroke="#06EBFF"
                     fill="none"
                     cx={center}
