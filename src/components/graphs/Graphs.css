@@ -1,0 +1,19 @@
+.circlular-chart {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    max-height: 250px;
+}
+
+.cirlular-bg {
+    fill: none;
+}
+
+.circle {
+    fill: rgba(167, 167, 167, 0);
+}
+
+.percentage {
+    text-anchor: middle;
+    font-weight: bold;
+}
